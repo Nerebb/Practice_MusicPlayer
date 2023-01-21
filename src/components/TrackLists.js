@@ -5,7 +5,8 @@ import AlbumIcon from "@mui/icons-material/Album";
 import "./AlbumIcon.css";
 
 function TrackLists() {
-  const { trackList, playTrack, currentTrackIndex } = useMusicPlayer();
+  const { trackList, playTrack, currentTrackIndex, isPlaying } =
+    useMusicPlayer();
   return (
     <Box>
       {trackList.map((track, index) => (
@@ -17,7 +18,7 @@ function TrackLists() {
             sx={{ bgColor: (theme) => theme.palette.action.selected }}
           >
             {currentTrackIndex === index ? (
-              <AlbumIcon className="beating" />
+              <AlbumIcon className={isPlaying ? "beating" : ""} />
             ) : (
               <></>
             )}

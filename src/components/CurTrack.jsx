@@ -72,10 +72,11 @@ export default function MusicPlayerSlider() {
             <FastRewindRounded fontSize="large" htmlColor={mainIconColor} />
           </IconButton>
           <IconButton
-            aria-label={isPlaying ? "play" : "pause"}
+            aria-label={!isPlaying ? "play" : "pause"}
             onClick={() => playTrack(currentTrackIndex)}
+            disabled={currentTrackName ? false : true}
           >
-            {isPlaying ? (
+            {!isPlaying ? (
               <PlayArrowRounded
                 sx={{ fontSize: "3rem" }}
                 htmlColor={mainIconColor}
